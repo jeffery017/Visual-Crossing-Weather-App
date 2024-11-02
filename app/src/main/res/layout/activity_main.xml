@@ -5,15 +5,222 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF22AA88"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/addrTimeTextMain"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Chicago, Sat Oct 12 12:00 PM"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/feelsLikeTextMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feels Like 67 F"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/tempTitleMain"
+        app:layout_constraintTop_toBottomOf="@+id/tempTitleMain" />
+
+    <TextView
+        android:id="@+id/weatherDescriptionTextMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Partially Cloudy (68% clouds)"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/addrTimeTextMain"
+        app:layout_constraintStart_toStartOf="@+id/addrTimeTextMain"
+        app:layout_constraintTop_toBottomOf="@+id/feelsLikeTextMain" />
+
+    <TextView
+        android:id="@+id/windTextMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Winds: E 8 mph gusting to 18 mph"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/addrTimeTextMain"
+        app:layout_constraintStart_toStartOf="@+id/addrTimeTextMain"
+        app:layout_constraintTop_toBottomOf="@+id/weatherDescriptionTextMain" />
+
+    <TextView
+        android:id="@+id/humidityTextMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Humidity: 60%"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/feelsLikeTextMain"
+        app:layout_constraintTop_toBottomOf="@+id/windTextMain" />
+
+    <TextView
+        android:id="@+id/uvTextMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="UV Index: 4"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/humidityTextMain"
+        app:layout_constraintTop_toBottomOf="@+id/humidityTextMain" />
+
+    <TextView
+        android:id="@+id/sunriseTextMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/uvTextMain" />
+
+    <TextView
+        android:id="@+id/sunsetTextMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBaseline_toBaselineOf="@+id/sunriseTextMain"
+        app:layout_constraintEnd_toEndOf="@+id/visibilityTextMain" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hourlyWeatherRecyclerMain"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="#44FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/sunriseTextMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#44000000"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addrTimeTextMain">
+
+        <ImageView
+            android:id="@+id/iconShowInMapMain"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:onClick="onShowInMapClick"
+            app:srcCompat="@drawable/map" />
+
+        <ImageView
+            android:id="@+id/iconToCurrentLocationMain"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:onClick="onShowCurrentLocationClick"
+            app:srcCompat="@drawable/target" />
+
+        <ImageView
+            android:id="@+id/iconShareMain"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginVertical="8dp"
+            android:onClick="onShareClick"
+            app:srcCompat="@drawable/share" />
+
+        <ImageView
+            android:id="@+id/iconToggleUnitMain"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:onClick="onToggleUnitClick"
+            app:srcCompat="@drawable/units_f" />
+
+        <ImageView
+            android:id="@+id/iconDailyForecastMain"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:onClick="onDailyForecastClick"
+            app:srcCompat="@drawable/daily" />
+
+        <ImageView
+            android:id="@+id/iconsetLocationMain"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:onClick="onSetLocationClick"
+            app:srcCompat="@drawable/location" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/visibilityTextMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Visibility: 9.9 mi"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/uvTextMain"
+        app:layout_constraintEnd_toEndOf="@+id/addrTimeTextMain" />
+
+    <ImageView
+        android:id="@+id/weatherImageMain"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/feelsLikeTextMain"
+        app:layout_constraintEnd_toEndOf="@+id/addrTimeTextMain"
+        app:layout_constraintTop_toTopOf="@+id/tempTitleMain"
+        app:srcCompat="@drawable/partly_cloudy_day" />
+
+    <TextView
+        android:id="@+id/tempTitleMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="67°F"
+        android:textColor="@color/textColor"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/addrTimeTextMain"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/mainChart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/hourlyWeatherRecyclerMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uvTextMain" />
 </androidx.constraintlayout.widget.ConstraintLayout>
