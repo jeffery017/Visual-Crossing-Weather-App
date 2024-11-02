@@ -68,17 +68,17 @@ public class Weather implements Serializable {
 
     // Hourly Weather class
     public static class HourlyWeather implements Serializable{
-        private long datetimeEpoch;
-        private double temp;
-        private double feelslike;
-        private double humidity;
-        private double windgust;
-        private double windspeed;
-        private double winddir;
-        private double uvindex;
-        private String datetime;
-        private String conditions;
-        private String icon;
+        private final long datetimeEpoch;
+        private final double temp;
+        private final double feelslike;
+        private final double humidity;
+        private final double windgust;
+        private final double windspeed;
+        private final double winddir;
+        private final double uvindex;
+        private final String datetime;
+        private final String conditions;
+        private final String icon;
 
         // constructors
         public HourlyWeather(String datetime, long datetimeEpoch, double temp, double feelslike, double humidity, double windgust, double windspeed, double winddir, double uvindex, String conditions, String icon) {
