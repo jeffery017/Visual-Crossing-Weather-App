@@ -19,13 +19,10 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
-import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Objects;
-import java.util.TreeMap;
 
 public class ChartMaker {
     private static final String TAG = "ChartMaker";
@@ -48,14 +45,13 @@ public class ChartMaker {
         this.binding = binding;
     }
 
-    public void makeChart(ArrayList<Weather.HourlyWeather> hours, long timeMillisIn) {
+    public void makeChart(ArrayList<Weather.HourlyWeather> hours) {
 
         setupChart(binding.mainChart);
         setupXAxis(binding.mainChart);
         setupYAxis(binding.mainChart);
         setData(binding.mainChart, hours);
 
-        //binding.dateTimeText.setText(sdf3.format(new Date(timeMillisIn)));
         binding.mainChart.setVisibility(View.VISIBLE);
     }
 

@@ -108,8 +108,6 @@ public class MainActivity extends AppCompatActivity {
         return String.format("Winds: %s %.0f mph gusting to %.0f mph", directions[dir], windspeed, windgust);
     }
 
-    private double cToF(double celsius) { return celsius * 9 / 5 + 32; }
-
     public boolean getIsCelsius() {
         return isCelsius;
     }
@@ -210,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
 
         // update chart data
         ChartMaker chartMaker = new ChartMaker(this, binding);
-        chartMaker.makeChart(hours, System.currentTimeMillis());
+        chartMaker.makeChart(hours);
 
         adapter.notifyDataSetChanged();
 

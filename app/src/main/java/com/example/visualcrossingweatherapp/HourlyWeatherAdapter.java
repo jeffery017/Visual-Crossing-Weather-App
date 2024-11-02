@@ -79,14 +79,6 @@ public class HourlyWeatherAdapter extends RecyclerView.Adapter<HourlyWeatherAdap
         return hourlyWeatherList.size();
     }
 
-
-
-    private String getDailyTimeText(long timeEpoch) {
-        LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(timeEpoch), ZoneId.systemDefault());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEE, MMM d");
-        return dateTime.format(formatter);
-    }
-
     private String getHourlyTimeText(long timeEpoch) {
         LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(timeEpoch), ZoneId.systemDefault());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm a");
